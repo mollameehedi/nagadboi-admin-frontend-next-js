@@ -8,6 +8,7 @@ import { GoArrowLeft } from 'react-icons/go';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { MdLockOutline } from 'react-icons/md';
 import ConfirmModal from '@/components/Common/Modal/ConfirmModal';
+import CreateBtn from '@/components/Common/CreateBtn';
 
 
 let nextWalletId = 1005;
@@ -18,7 +19,7 @@ const Card = ({ children, className = '' }) => (
     </div>
 );
 
-const WalletManagementCRUD = () => {
+const Wallet = () => {
     const [wallets, setWallets] = useState(allWallets);
     const [searchTerm, setSearchTerm] = useState('');
     // null for viewing list, object for editing/viewing, true for adding new
@@ -125,13 +126,7 @@ const WalletManagementCRUD = () => {
                         <span className="font-medium text-xl">Wallet Management List</span>
                     </div>
                     <div className="flex space-x-4 w-full sm:w-auto">
-                        <button
-                            onClick={() => setActiveWallet(true)}
-                            className="flex items-center space-x-2 px-4 py-2 text-base  text-primary font-medium hover:bg-gray-50 transition-colors"
-                        >
-                            <AiOutlinePlus className="w-4 h-4" />
-                            <span>Create New Wallet</span>
-                        </button>
+                        <CreateBtn handleClick={() => setActiveWallet(true)} text='Create New Wallet'/>
                     </div>
                 </div>
 
@@ -261,4 +256,4 @@ const WalletManagementCRUD = () => {
     );
 };
 
-export default WalletManagementCRUD;
+export default Wallet;

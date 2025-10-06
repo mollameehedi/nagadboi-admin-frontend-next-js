@@ -6,6 +6,7 @@ import React, { useState, useMemo } from 'react';
 import { FaArrowLeft, FaPlus, FaRegTrashAlt, FaTrashAlt } from 'react-icons/fa';
 import { FiEdit } from 'react-icons/fi';
 import {allCategories} from  '@/app/Data/category'
+import CreateBtn from '@/components/Common/CreateBtn';
 
 const Category = () => {
     const [categories, setCategories] = useState(allCategories);
@@ -51,11 +52,7 @@ const Category = () => {
                                 <span className="font-medium text-base ">All Category</span>
                             </div>
                             <div className="flex space-x-4">
-                                <button 
-                    onClick={() => setActiveCategory(true)}  className="flex items-center space-x-2 px-4 py-2 text-base  text-primary font-medium hover:bg-gray-50 transition-colors">
-                                    <FaPlus className="w-5 h-5 mr-2" />
-                                    <span>Add Category</span>
-                                </button>
+                                <CreateBtn handleClick={() => setActiveCategory(true)} text='Add Category'/>
                             </div>
                         </div>
 

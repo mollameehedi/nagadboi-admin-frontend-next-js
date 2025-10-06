@@ -36,6 +36,13 @@ export const AppRoutes = {
         label: 'All Wallet',
       },
     },
+    // package 
+    package: {
+      index: {
+        path: '/admin/package',
+        label: 'All Package',
+      },
+    },
     // user route start here
     user: {
       index: {

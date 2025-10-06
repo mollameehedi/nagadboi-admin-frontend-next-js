@@ -16,6 +16,7 @@ import { FaUser } from 'react-icons/fa';
 import { BiCategory } from 'react-icons/bi';
 import { FiUsers } from 'react-icons/fi';
 import { IoWalletOutline } from 'react-icons/io5';
+import { GoPackage } from 'react-icons/go';
 
 const Sidebar = () => {
    const [activeDropdown, setActiveDropdown] = useState(null);
@@ -57,6 +58,12 @@ const Sidebar = () => {
   text="Customer"
   href={AppRoutes.admin.customer.index.path} 
   icon={FiUsers}
+  getNavLinkClass={getNavLinkClass}
+/>
+   <SidebarItem
+  text="Package"
+  href={AppRoutes.admin.package.index.path} 
+  icon={GoPackage}
   getNavLinkClass={getNavLinkClass}
 />
    <SidebarItem
