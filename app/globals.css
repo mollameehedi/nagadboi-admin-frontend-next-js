@@ -49,7 +49,7 @@ body {
   @apply bg-primary/10 text-primary;
 }
 .sidebar_item_icon{
-  @apply font-normal rounded-lg  mr-2 text-base;
+  @apply font-normal rounded-sm  mr-2 text-base;
 }
 .booking_itme {
   @apply border-b-1 border-gray-200 flex items-center justify-between;

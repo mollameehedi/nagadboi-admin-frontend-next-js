@@ -5,6 +5,10 @@ export const AppRoutes = {
     path: '/',
     label: 'Home Page',
   },
+  support: {
+    path: '/support',
+    label: 'Home Page',
+  },
 
   // admin route here
   admin: {
@@ -41,6 +45,21 @@ export const AppRoutes = {
       index: {
         path: '/admin/package',
         label: 'All Package',
+      },
+    },
+    // notification 
+    notification: {
+      index: {
+        path: '/admin/notification',
+        label: 'All Notification',
+      },
+      fraud: {
+        path: '/admin/notification/fraud-alert',
+        label: 'All Notification',
+      },
+      tamplete: {
+        path: '/admin/notification/email-tamplete',
+        label: 'Email/SMS Tamplete',
       },
     },
     // user route start here

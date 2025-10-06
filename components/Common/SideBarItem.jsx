@@ -1,11 +1,5 @@
-import Link from 'next/link';
-import React from 'react';
-import { IoMdArrowDropright } from 'react-icons/io';
 
-// The following are placeholder components for sandboxed environment:
-// We use NextLink here to avoid compilation errors in the canvas
-// since we cannot install 'next/link' directly.
-// In a real Next.js environment, you should use the imported 'Link' component.
+import React from 'react';
 const NextLink = ({ href, children, ...props }) => <a href={href} {...props}>{children}</a>;
 
 // Placeholder for the icon component
@@ -13,8 +7,7 @@ const IoMdArrowDroprightPlaceholder = ({ className }) => <svg className={classNa
 
 
 const SidebarItem = ({ icon: Icon, text, href, name, activeDropdownName, onDropdownToggle, getNavLinkClass, children }) => {
-  // Logic to determine if it should be a dropdown: only if 'children' exists AND 'href' is NOT provided.
-  // This satisfies your requirement for a single link when 'href' is present, even if children are accidentally passed.
+  
   const isDropdown = !!children && !href;
   const isDropdownOpen = activeDropdownName === name;
   const isActive = isDropdown ? false : getNavLinkClass(href) === 'active-link';
@@ -43,9 +36,6 @@ const SidebarItem = ({ icon: Icon, text, href, name, activeDropdownName, onDropd
       </div>
     );
   }
-
-  // Use NextLink (as placeholder) for single link items when href is present
-  // In a real project, replace NextLink with Link
   return (
     <NextLink href={href} className={`${baseClasses} ${activeClasses}`}>
       {Icon && <Icon className='sidebar_item_icon' />}

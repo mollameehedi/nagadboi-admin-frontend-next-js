@@ -5,21 +5,21 @@ import Link from 'next/link';
 import React, { useState, useMemo } from 'react';
 import { FaArrowLeft, FaPlus, FaRegTrashAlt, FaTrashAlt } from 'react-icons/fa';
 import { FiEdit } from 'react-icons/fi';
-import {allCategories} from  '@/app/Data/category'
+import { allCategories } from '@/app/Data/category'
 import CreateBtn from '@/components/Common/CreateBtn';
 
 const Category = () => {
     const [categories, setCategories] = useState(allCategories);
     const [searchTerm, setSearchTerm] = useState('');
     // null for viewing list, object for editing, true for adding new
-    const [activeCategory, setActiveCategory] = useState(null); 
+    const [activeCategory, setActiveCategory] = useState(null);
 
     // Filter categories based on search term
     const filteredCategories = useMemo(() => {
         if (!searchTerm) return categories;
 
         const lowerCaseSearch = searchTerm.toLowerCase();
-        return categories.filter(cat => 
+        return categories.filter(cat =>
             cat.name.toLowerCase().includes(lowerCaseSearch) ||
             cat.slug.toLowerCase().includes(lowerCaseSearch)
         );
@@ -45,18 +45,18 @@ const Category = () => {
 
     return (
         <div className='space-y-6'>
- <div className="flex justify-between items-center pb-4 border-b border-gray-200 px-5">
-                            <div className="flex items-center space-x-2 text-gray-900">
-                                <Link  href='/Admin/dashboard'> <FaArrowLeft className="w-4 h-4 font-medium  " /></Link>
-                               
-                                <span className="font-medium text-base ">All Category</span>
-                            </div>
-                            <div className="flex space-x-4">
-                                <CreateBtn handleClick={() => setActiveCategory(true)} text='Add Category'/>
-                            </div>
-                        </div>
+            <div className="flex justify-between items-center pb-4 border-b border-gray-200 px-5">
+                <div className="flex items-center space-x-2 text-gray-900">
+                    <Link href='/Admin/dashboard'> <FaArrowLeft className="w-4 h-4 font-medium  " /></Link>
 
-                        
+                    <span className="font-medium text-base ">All Category</span>
+                </div>
+                <div className="flex space-x-4">
+                    <CreateBtn handleClick={() => setActiveCategory(true)} text='Add Category' />
+                </div>
+            </div>
+
+
             {/* Controls */}
             <div className="flex justify-between items-center mb-8">
                 {/* Search Bar */}
@@ -110,8 +110,8 @@ const Category = () => {
                         ) : (
                             <tr>
                                 <td colSpan="4" className="px-6 py-10 text-center text-gray-500">
-                                    {searchTerm ? 
-                                        `No categories found matching "${searchTerm}".` : 
+                                    {searchTerm ?
+                                        `No categories found matching "${searchTerm}".` :
                                         'No categories available. Click "Add New Category" to start.'
                                     }
                                 </td>
@@ -123,7 +123,7 @@ const Category = () => {
 
             {/* Add/Edit Modal */}
             {(activeCategory !== null) && (
-                <CategoryModal 
+                <CategoryModal
                     activeCategory={activeCategory !== true ? activeCategory : null}
                     onClose={() => setActiveCategory(null)}
                     onSave={handleSave}
@@ -132,4 +132,4 @@ const Category = () => {
         </div>
     );
 };
-export default  Category;
+export default Category;
