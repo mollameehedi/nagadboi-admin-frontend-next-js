@@ -22,10 +22,18 @@ export const AppRoutes = {
         label: 'Category Create',
       },
     },
+    // customer 
     customer: {
       index: {
         path: '/admin/customer',
         label: 'All customer',
+      },
+    },
+    // customer 
+    wallet: {
+      index: {
+        path: '/admin/wallet',
+        label: 'All Wallet',
       },
     },
     // user route start here

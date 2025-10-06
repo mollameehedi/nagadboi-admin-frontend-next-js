@@ -66,8 +66,7 @@ const Create = () => {
         setSubmissionStatus({ type: 'success', message: `Role '${newRole.name}' saved successfully!` });
 
         // Pass the new role data up to the parent container
-        handleSave({ ...newRole, id: Date.now() }); 
-        
+        handleSave({ ...newRole, id: Date.now() });
         // Reset form after a slight delay
         setTimeout(() => {
             setNewRole({ name: '', description: '', permissions: [] });

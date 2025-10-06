@@ -15,6 +15,7 @@ import { AppRoutes } from '@/app/constants/routes';
 import { FaUser } from 'react-icons/fa';
 import { BiCategory } from 'react-icons/bi';
 import { FiUsers } from 'react-icons/fi';
+import { IoWalletOutline } from 'react-icons/io5';
 
 const Sidebar = () => {
    const [activeDropdown, setActiveDropdown] = useState(null);
@@ -56,6 +57,12 @@ const Sidebar = () => {
   text="Customer"
   href={AppRoutes.admin.customer.index.path} 
   icon={FiUsers}
+  getNavLinkClass={getNavLinkClass}
+/>
+   <SidebarItem
+  text="Wallet"
+  href={AppRoutes.admin.wallet.index.path} 
+  icon={IoWalletOutline}
   getNavLinkClass={getNavLinkClass}
 />
 

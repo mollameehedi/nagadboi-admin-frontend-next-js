@@ -3,29 +3,12 @@ import Card from '@/components/Common/Card';
 import CategoryModal from '@/components/Screen/Category/CategoryCreate';
 import Link from 'next/link';
 import React, { useState, useMemo } from 'react';
-import { FaArrowLeft, FaTrashAlt } from 'react-icons/fa';
-import { MdContentCopy } from 'react-icons/md';
+import { FaArrowLeft, FaPlus, FaRegTrashAlt, FaTrashAlt } from 'react-icons/fa';
+import { FiEdit } from 'react-icons/fi';
+import {allCategories} from  '@/app/Data/category'
 
-// =========================================================
-// MOCK DATA & ICONS
-// =========================================================
-
-const MOCK_CATEGORIES = [
-    { id: 1, name: 'Technology', slug: 'tech', products: 120 },
-    { id: 2, name: 'Apparel & Fashion', slug: 'fashion', products: 450 },
-    { id: 3, name: 'Home Goods', slug: 'home', products: 300 },
-    { id: 4, name: 'Food & Beverage', slug: 'food', products: 88 },
-    { id: 5, name: 'Books & Media', slug: 'books', products: 210 },
-];
-
-// Inline SVG Icons
-const IconPlus = (props) => <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" /></svg>;
-const IconEdit = (props) => <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>;
-const IconTrash = (props) => <svg {...props} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>;
-
-
-const CategoryIndexPage = () => {
-    const [categories, setCategories] = useState(MOCK_CATEGORIES);
+const Category = () => {
+    const [categories, setCategories] = useState(allCategories);
     const [searchTerm, setSearchTerm] = useState('');
     // null for viewing list, object for editing, true for adding new
     const [activeCategory, setActiveCategory] = useState(null); 
@@ -54,7 +37,6 @@ const CategoryIndexPage = () => {
     };
 
     const handleDelete = (id) => {
-        // IMPORTANT: Use custom modal for confirmation, not window.confirm
         if (window.confirm('Are you sure you want to delete this category? (Simulated Confirm)')) {
             setCategories(cats => cats.filter(c => c.id !== id));
         }
@@ -71,7 +53,7 @@ const CategoryIndexPage = () => {
                             <div className="flex space-x-4">
                                 <button 
                     onClick={() => setActiveCategory(true)}  className="flex items-center space-x-2 px-4 py-2 text-base  text-primary font-medium hover:bg-gray-50 transition-colors">
-                                    <IconPlus className="w-5 h-5 mr-2" />
+                                    <FaPlus className="w-5 h-5 mr-2" />
                                     <span>Add Category</span>
                                 </button>
                             </div>
@@ -116,14 +98,14 @@ const CategoryIndexPage = () => {
                                             className="text-indigo-600 hover:text-indigo-900 p-1 rounded-full hover:bg-indigo-100 transition"
                                             title="Edit"
                                         >
-                                            <IconEdit className="w-5 h-5" />
+                                            <FiEdit className="w-5 h-5" />
                                         </button>
                                         <button
                                             onClick={() => handleDelete(category.id)}
                                             className="text-red-600 hover:text-red-900 p-1 rounded-full hover:bg-red-100 transition"
                                             title="Delete"
                                         >
-                                            <IconTrash className="w-5 h-5" />
+                                            <FaRegTrashAlt className="w-5 h-5" />
                                         </button>
                                     </td>
                                 </tr>
@@ -153,4 +135,4 @@ const CategoryIndexPage = () => {
         </div>
     );
 };
-export default  CategoryIndexPage;
+export default  Category;
