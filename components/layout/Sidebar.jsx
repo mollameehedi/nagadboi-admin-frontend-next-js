@@ -21,6 +21,7 @@ import { BsPatchQuestion } from 'react-icons/bs';
 import { SlEnvolope } from 'react-icons/sl';
 import { LuBell } from 'react-icons/lu';
 import { PiBellSimpleRingingLight } from 'react-icons/pi';
+import { CgWebsite } from 'react-icons/cg';
 
 const Sidebar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -87,6 +88,19 @@ const Sidebar = () => {
             <MdOutlineSettings className='sidebar_item_icon' /> Role
           </Link>
         </SidebarItem>
+
+        {/* website management */}
+<SidebarItem
+          text="Website Managment"
+          href={AppRoutes.admin.websiteManager.index.path}
+          icon={CgWebsite}
+          getNavLinkClass={getNavLinkClass}
+        />
+
+
+
+
+        {/* notification  */}
         <SidebarItem icon={MdOutlineNotifications} text="Notification & Alerts" name="Notification_Alerts" activeDropdownName={activeDropdown} onDropdownToggle={handleDropdownToggle} getNavLinkClass={getNavLinkClass} >
           <Link href={AppRoutes.admin.notification.index.path} className={`sidebar_item ${getNavLinkClass(AppRoutes.admin.notification.index.path)}`}>
             <PiBellSimpleRingingLight className='sidebar_item_icon' /> System Alert
@@ -98,6 +112,8 @@ const Sidebar = () => {
             <SlEnvolope className='sidebar_item_icon' /> Email/SMS Templates
           </Link>
         </SidebarItem>
+
+
         <SidebarItem
           text="Help & Support"
           href={AppRoutes.support.path}

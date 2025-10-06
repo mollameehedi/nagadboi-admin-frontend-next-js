@@ -1,3 +1,4 @@
+import WebsiteManager from "../admin/(pages)/website-management/page";
 
 export const AppRoutes = {
 
@@ -82,6 +83,28 @@ export const AppRoutes = {
       }),
     },
 // user route end here
+
+
+    // Website management here
+    websiteManager: {
+      index: {
+        path: '/admin/website-management',
+        label: 'General Setting',
+      },
+      create: {
+        path: '/admin/user-management/user/create',
+        label: 'User Create',
+      },
+      show: (id) => ({
+        path: `/admin/user/${id}`,
+        label: 'User Details',
+      }),
+      edit: (id) => ({
+        path: `/admin/user/${id}/edit`,
+        label: 'User Edit',
+      }),
+    },
+// website management end here
 role: {
       index: {
         path: '/admin/user-management/role',
