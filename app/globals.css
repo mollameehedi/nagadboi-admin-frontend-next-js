@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+
+:root {
+  --primary: #4863d4;
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background:  var(--foreground);
+  color: var(--background);
+  font-family: "Montserrat", sans-serif;
+}
+
+.auth_button{
+  @apply  w-full flex items-center justify-center  px-4 py-3 border border-gray-300 rounded-sm text-base font-medium text-primary bg-white text-primary hover:bg-gray-50 text-primary transition-colors;
+}
+
+
+.auth_banner li.slick-active div {
+    background: var(--primary);
+    padding: 5px;
+}
+
+.border_bottom_logo{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.sidebar_item{
+  @apply flex items-center w-full px-3 py-2 my-2 font-normal text-gray-900 hover:bg-gray-200 transition-colors focus:outline-none;
+}
+.active-link{
+  @apply bg-primary/10 text-primary;
+}
+.sidebar_item_icon{
+  @apply font-normal rounded-lg  mr-2 text-base;
+}
+.booking_itme {
+  @apply border-b-1 border-gray-200 flex items-center justify-between;
+}
