@@ -173,9 +173,7 @@ const Create = () => {
                     ))}
                     
                     {newRole.permissions.length === 0 && (
-                        <p className="text-red-500 text-sm font-medium text-center p-3 border border-red-200 bg-red-50 rounded-lg">
-                            Please select at least one permission to define this role's access.
-                        </p>
+                        <p className="text-red-500 text-sm font-medium text-center p-3 border border-red-200 bg-red-50 rounded-lg"> Please select at least one permission to define this role&apos;s access.</p>
                     )}
                 </div>
 
