@@ -305,19 +305,24 @@ const ContactDetailsTab = () => {
             </div>
 
             <div className="mt-8 flex justify-between items-center pt-4 border-t">
-                {savedMsg && (
+                {savedMsg ? (
                     <span className="text-sm font-medium text-green-600 transition-opacity duration-500">
                         {savedMsg}
                     </span>
-                )}
-                <button
+                ):(
+
+                    <>
+                     <button
                     onClick={handleSave}
                     disabled={isSaving}
-                    className="flex items-center space-x-2 px-6 py-3 bg-indigo-600 text-white font-bold rounded-full hover:bg-indigo-700 transition-colors shadow-md disabled:bg-indigo-400"
+                    className="flex items-center space-x-2 px-6 py-3 bg-indigo-600 text-white font-bold rounded-sm hover:bg-indigo-700 transition-colors disabled:bg-indigo-400"
                 >
                     <IconSave className="w-5 h-5" />
                     <span>{isSaving ? 'Saving...' : 'Save Contact Details'}</span>
                 </button>
+                    </>
+                )}
+               
             </div>
         </Card>
     );
@@ -856,7 +861,7 @@ const WebsiteManager = () => {
                 <div className="flex flex-col lg:flex-row">
                     
                     {/* Sidebar Navigation */}
-                    <nav className="w-full lg:w-64 bg-gray-50 p-4 border-r border-gray-200">
+                    <nav className="w-full lg:w-64 bg-gray-50 border-r border-gray-200">
                         <ul className="space-y-1">
                             {TABS.map(tab => {
                                 const isActive = activeTab === tab.id;
@@ -864,9 +869,9 @@ const WebsiteManager = () => {
                                     <li key={tab.id}>
                                         <button
                                             onClick={() => setActiveTab(tab.id)}
-                                            className={`flex items-center w-full p-3 rounded-lg font-semibold text-left transition-all duration-200 
+                                            className={`flex items-center w-full p-3 rounded-sm font-semibold text-left transition-all duration-200 
                                                 ${isActive 
-                                                    ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-500/50' 
+                                                    ? 'bg-indigo-100 text-indigo-700' 
                                                     : 'text-gray-700 hover:bg-indigo-100 hover:text-indigo-700'}`
                                             }
                                         >

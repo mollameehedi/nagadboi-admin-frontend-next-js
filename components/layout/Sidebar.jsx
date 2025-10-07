@@ -96,10 +96,6 @@ const Sidebar = () => {
           icon={CgWebsite}
           getNavLinkClass={getNavLinkClass}
         />
-
-
-
-
         {/* notification  */}
         <SidebarItem icon={MdOutlineNotifications} text="Notification & Alerts" name="Notification_Alerts" activeDropdownName={activeDropdown} onDropdownToggle={handleDropdownToggle} getNavLinkClass={getNavLinkClass} >
           <Link href={AppRoutes.admin.notification.index.path} className={`sidebar_item ${getNavLinkClass(AppRoutes.admin.notification.index.path)}`}>
